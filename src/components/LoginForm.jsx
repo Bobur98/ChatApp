@@ -1,28 +1,28 @@
-import axios from "axios";
-import React, { useState } from "react";
+import axios from 'axios';
+import React, { useState } from 'react';
 
 const LoginForm = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const authObject = {
-      "Project-ID": `1f110ac3-ac2a-4147-8575-2d1d886e3e6d`,
-      "User-Name": username,
-      "User-Secret": password,
+      'Project-ID': `1f110ac3-ac2a-4147-8575-2d1d886e3e6d`,
+      'User-Name': username,
+      'User-Secret': password,
     };
 
     try {
-      await axios.get("https://api.chatengine.io/chats", {
+      await axios.get('https://api.chatengine.io/chats', {
         headers: authObject,
       });
-      localStorage.setItem("username", username);
-      localStorage.setItem("password", password);
+      localStorage.setItem('username', username);
+      localStorage.setItem('password', password);
       window.location.reload();
     } catch (error) {
-      setError("Oops, incorrect password or username");
+      setError('Oops, incorrect password or username');
     }
   };
 
@@ -36,7 +36,7 @@ const LoginForm = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             className="input"
-            placeholder="username"
+            placeholder="bobur"
             required
           />
           <input
@@ -44,7 +44,7 @@ const LoginForm = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="input"
-            placeholder="password"
+            placeholder="1234"
             required
           />
           <div align="center">
